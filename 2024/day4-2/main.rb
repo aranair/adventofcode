@@ -37,10 +37,13 @@ end
 
 def break_matrix(matrix, sub_rows=3, sub_cols=3)
   result = []
+  rows = matrix.length
+  # assume square?
+  cols = matrix[0].length
 
   # Iterate over the starting rows and columns of each submatrix
-  (0..(matrix.length - sub_rows)).step(1) do |start_row|
-    (0..(matrix[0].length - sub_cols)).step(1) do |start_col|
+  (0..(rows - sub_rows)).step(1) do |start_row|
+    (0..(cols - sub_cols)).step(1) do |start_col|
       submatrix = []
       (start_row...(start_row + sub_rows)).each do |r|
         submatrix << matrix[r][start_col...(start_col + sub_cols)]
